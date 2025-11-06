@@ -90,6 +90,9 @@
               "node_modules/flowbite/dist/flowbite.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

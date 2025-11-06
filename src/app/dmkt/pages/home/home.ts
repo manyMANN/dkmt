@@ -28,9 +28,9 @@ export default class HomeComponent {
   ];
 
   steps2 = [
-    { title: 'Misión', text: 'Desarrollar e implementar soluciones tecnológicas innovadoras de recuperación de calor en sistemas de refrigeración con CO₂, optimizando el uso de recursos energéticos y reduciendo la dependencia de sistemas tradicionales como calderas.', img: '/assets/img/mision.png' },
-    { title: 'Visión', text: 'Ser líderes en Latinoamérica en la implementación de sistemas de refrigeración con CO₂ y recuperación de calor, reconocidos por impulsar la transición hacia procesos industriales más limpios, eficientes y sustentables.', img: '/assets/img/vision.png' },
-    { title: 'Objetivo de la Marca', text: 'Recuperar el calor generado en un sistema de refrigeración con CO2, evitando los sistemas de generación de calor tradicionales, como lo son las calderas.', img: '/assets/img/vision.png' },
+    { title: 'Misión', text: 'Desarrollar e implementar soluciones tecnológicas innovadoras de recuperación de calor en sistemas de refrigeración con CO₂, optimizando el uso de recursos energéticos y reduciendo la dependencia de sistemas tradicionales como calderas.', img: 'assets/img/mision.png' },
+    { title: 'Visión', text: 'Ser líderes en Latinoamérica en la implementación de sistemas de refrigeración con CO₂ y recuperación de calor, reconocidos por impulsar la transición hacia procesos industriales más limpios, eficientes y sustentables.', img: 'assets/img/vision.png' },
+    { title: 'Objetivo de la Marca', text: 'Recuperar el calor generado en un sistema de refrigeración con CO2, evitando los sistemas de generación de calor tradicionales, como lo son las calderas.', img: 'assets/img/vision.png' },
   ];
 
   steps3 = [
@@ -43,17 +43,17 @@ export default class HomeComponent {
     {
       title: 'Modelo Base',
       text: 'Nuestro modelo se basa en la integración de sistemas de refrigeración con CO₂ y recuperación de calor, optimizando el uso de energía y reduciendo la dependencia de calderas tradicionales. Esta plataforma combina frío y calor en un mismo sistema eficiente y sustentable.',
-      img: '/assets/img/modelo-base.png'
+      img: 'assets/img/modelo-base.png'
     },
     {
       title: '¿Cómo funciona?',
       text: 'El sistema recupera el calor generado por el proceso de refrigeración y lo reutiliza para aplicaciones industriales, como calentamiento de agua o procesos térmicos. De esta forma, se aprovecha al máximo la energía disponible y se minimiza el desperdicio energético.',
-      img: '/assets/img/funcionamiento.png'
+      img: 'assets/img/funcionamiento.png'
     },
     {
       title: 'Planta de Quesos "El Lobo"',
       text: 'En la planta de quesos “El Lobo” implementamos nuestro sistema de refrigeración con CO₂, logrando recuperar el calor para procesos de pasteurización y limpieza. Esto permitió reducir el consumo de gas y electricidad, mejorando la eficiencia y sostenibilidad de la operación.',
-      img: '/assets/img/planta-lobo.png'
+      img: 'assets/img/planta-lobo.png'
     }
   ];
 
@@ -82,22 +82,22 @@ export default class HomeComponent {
     {
       title: 'Industria Cárnica',
       text: 'Implementación de sistemas de refrigeración con recuperación de calor en plantas de procesamiento de carne, optimizando la eficiencia energética y garantizando la conservación y calidad del producto.',
-      img: '/assets/img/industria_carnica.png'
+      img: 'assets/img/industria_carnica.png'
     },
     {
       title: 'Industria Cervecera',
       text: 'Aplicación de tecnología de CO₂ y recuperación de calor en cervecerías para mejorar la eficiencia en procesos de fermentación y enfriamiento, reduciendo el consumo de energía y recursos.',
-      img: '/assets/img/industria_cervecera.png'
+      img: 'assets/img/industria_cervecera.png'
     },
     {
       title: 'Industria de Alimentos Congelados (Vegetales)',
       text: 'Sistemas de refrigeración integrados para la conservación de vegetales y otros alimentos congelados, aprovechando la recuperación de calor para optimizar procesos térmicos y energéticos en plantas industriales.',
-      img: '/assets/img/alimentos_congelados.png'
+      img: 'assets/img/alimentos_congelados.png'
     },
     {
       title: 'Producción de Jugos y Bebidas',
       text: 'Implementación de soluciones térmicas sostenibles en la producción de jugos y bebidas, integrando frío y calor en una misma plataforma para reducir consumo energético y mejorar la eficiencia de los procesos.',
-      img: '/assets/img/jugos_bebidas.png'
+      img: 'assets/img/jugos_bebidas.png'
     }
   ];
 

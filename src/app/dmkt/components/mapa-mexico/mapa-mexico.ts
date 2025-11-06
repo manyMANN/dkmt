@@ -16,37 +16,37 @@ export class MapaMexicoComponent implements AfterViewInit {
   {
     nombre: 'Jugos del Valle, Planta Tepotzotlán, Estado de México',
     coords: [19.6240, -99.2740], // coordenadas aproximadas Tepotzotlán
-    img: '/assets/img/proyectos/jugos_valle.png',
+    img: 'assets/img/proyectos/jugos_valle.png',
     descripcion: 'Planta de producción de jugos del Valle con integración de sistemas de refrigeración y recuperación de calor.'
   },
   {
     nombre: 'Peñafiel Bebidas, S.A., Planta Tehuacán, Puebla',
     coords: [18.4606, -97.3906], // coordenadas aproximadas Tehuacán
-    img: '/assets/img/proyectos/penafiel.png',
+    img: 'assets/img/proyectos/penafiel.png',
     descripcion: 'Planta de bebidas Peñafiel con optimización de procesos térmicos y eficiencia energética.'
   },
   {
     nombre: 'SuKarne S.A. de C.V., Planta La Piedad de Cabadas, Michoacán',
     coords: [20.3561, -101.8536], // coordenadas aproximadas La Piedad
-    img: '/assets/img/proyectos/sukarne.png',
+    img: 'assets/img/proyectos/sukarne.png',
     descripcion: 'Planta cárnica SuKarne con implementación de sistemas de refrigeración para la conservación de carne.'
   },
   {
     nombre: 'Pilgrims Pride de México S.A., Planta Soledad de Doblado, Veracruz',
     coords: [19.0495, -96.2833], // coordenadas aproximadas Soledad de Doblado
-    img: '/assets/img/proyectos/pilgrims.png',
+    img: 'assets/img/proyectos/pilgrims.png',
     descripcion: 'Planta avícola con recuperación de calor y optimización de procesos de frío y calor.'
   },
   {
     nombre: 'Frigorizados La Huerta, S.A. de C.V., Planta San Francisco de los Romo, Aguascalientes',
     coords: [22.1500, -102.3000], // coordenadas aproximadas San Francisco de los Romo
-    img: '/assets/img/proyectos/frigorizados.png',
+    img: 'assets/img/proyectos/frigorizados.png',
     descripcion: 'Planta de alimentos congelados con sistemas integrados de refrigeración y eficiencia energética.'
     },
     {
      nombre: 'Grupo Cuauhtémoc Moctezuma, Planta Nicolás Romero, Estado de México',
   coords: [19.7286, -99.2780], // coordenadas aproximadas de Nicolás Romero
-  img: '/assets/img/proyectos/cuauhtemoc.png',
+  img: 'assets/img/proyectos/cuauhtemoc.png',
   descripcion: 'Planta de bebidas del Grupo Cuauhtémoc Moctezuma con integración de sistemas de refrigeración y eficiencia energética.'
   }
 ];
