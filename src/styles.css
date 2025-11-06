@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+@import 'flowbite/src/themes/default';
+@import 'leaflet/dist/leaflet.css';
+
+.orbit-container {
+  width: 250px;
+  height: 70px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.orbit {
+  display: flex;
+  gap: 15px;
+  animation: scroll 15s linear infinite;
+  white-space: nowrap;
+}
+
+.orbit::after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+.orbit-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: inline-block;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes zoomInOut {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.zoom-animation {
+  animation: zoomInOut 10s ease-in-out infinite;
+}

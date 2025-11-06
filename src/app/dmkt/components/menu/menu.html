@@ -1,0 +1,54 @@
+<nav class="border-white dark:bg-gray-900">
+  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between p-4">
+    <!-- LOGO -->
+    <menu-logo class="hover:scale-105 transition-transform duration-700 ease-in-out"></menu-logo>
+
+    <!-- BOTÓN HAMBURGUESA (solo móvil) -->
+    <button
+      data-collapse-toggle="navbar-main"
+      type="button"
+      class="inline-flex items-center w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:scale-125 transition-transform duration-700 ease-in-out"
+      aria-controls="navbar-main"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Abrir menú principal</span>
+      <svg
+        class="w-5 h-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"
+        />
+      </svg>
+    </button>
+
+    <!-- MENÚ PRINCIPAL -->
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto" id="navbar-main">
+      <ul
+        class="flex flex-col font-medium p-4 md:p-0 mt-4 md:mt-0 border border-sky-950 rounded-lg bg-transparent md:space-x-8 md:flex-row md:border-0"
+      >
+        <li class="hover:bg-neutral-700 p-2 px-4 rounded-lg" *ngFor="let item of items">
+          <menu-item [label]="item.label" [href]="item.href"></menu-item>
+        </li>
+      </ul>
+    </div>
+
+    <div
+      class="hidden relative hover:scale-110 transition-transform duration-700 ease-in-out md:block"
+    >
+      <div class="absolute -left-20 -bottom-5">
+        <p class="text-white text-5xl font-extrabold">&#10094;&#10094;</p>
+      </div>
+      <div class="absolute right-8 -top-7">
+        <p class="text-amber-400 text-5xl font-extrabold">&#10095;&#10095;</p>
+      </div>
+    </div>
+  </div>
+</nav>

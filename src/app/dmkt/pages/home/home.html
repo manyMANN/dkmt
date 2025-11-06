@@ -1,0 +1,380 @@
+<!--Slogan-->
+<div class="relative h-screen w-full overflow-hidden">
+  <img [src]="portada" class="w-full h-full object-cover zoom-animation" alt="Adesa presentación" />
+  <div
+    class="absolute bg-linear-to-b from-black/80 via-black/50 to-transparent p-15 flex justify-between items-start w-5/8 h-3/5 text-center text-white left-1/15 top-2/5 md:left-15 md:px-10 md:text-5xl"
+  >
+    <p>Innovación térmica sustentable en la industria de alimentos</p>
+  </div>
+
+  <menu-logo class="absolute left-28 bottom-20 md:left-5/6 md:bottom-10 scale-125 z-30"></menu-logo>
+</div>
+<!--¿Quienes Somos?-->
+<div
+  class="my-30 flex flex-col items-center bg-sky-950 md:flex-row md:max-w-x7 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+>
+  <img class="object-cover w-full md:h-auto md:w-lg" src="/assets/img/presentacion.png" alt="" />
+  <div class="relative h-72 p-10 flex flex-col md:justify-center md:p-4 leading-normal">
+    <h5
+      class="text-md font-bold tracking-tight text-white border-b-2 border-b-amber-400 md:text-2xl md:pb-3"
+    >
+      ¿Quiénes somos?
+    </h5>
+    <p class="pt-0 text-sm text-white md:text-base md:pt-3">
+      En FoodTherm Solutions somos una empresa mexicana especializada en el desarrollo e
+      implementación de soluciones térmicas sustentables para la industria. Nos enfocamos en
+      aprovechar la recuperación de calor en sistemas de refrigeración con CO₂, integrando
+      tecnologías que optimizan la eficiencia energética, reducen costos operativos y minimizan el
+      impacto ambiental. Nuestro compromiso es impulsar la transición hacia procesos industriales
+      más eficientes, responsables y circulares, contribuyendo al equilibrio entre rentabilidad
+      económica, cuidado ambiental y bienestar social.
+    </p>
+    <div class="absolute md:left-8 md:bottom-64">
+      <p class="text-white text-3xl font-extrabold md:text-5xl">&#10094;&#10094;</p>
+    </div>
+    <div class="absolute md:left-8 md:bottom-64">
+      <p class="text-amber-400 text-3xl font-extrabold md:text-5xl">&#10095;&#10095;</p>
+    </div>
+    <div class="absolute md:right-8 md:top-10/12">
+      <p class="text-white text-3xl font-extrabold md:text-5xl">&#10094;&#10094;</p>
+    </div>
+    <div class="absolute md:right-8 md:top-10/12">
+      <p class="text-amber-400 text-3xl font-extrabold md:text-5xl">&#10095;&#10095;</p>
+    </div>
+  </div>
+</div>
+<!--Misión Visión y Objetivo de la Marca-->
+<div class="w-3/4 mx-auto py-10">
+  <ol class="flex items-center w-full mb-8 sm:mb-10">
+    <li
+      *ngFor="let step of steps; let i = index"
+      class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-4 after:inline-block transition-all duration-300"
+      [ngClass]="{
+        'text-blue-600 dark:text-blue-500 after:border-blue-100 dark:after:border-blue-800':
+          currentStep > i + 1,
+        'after:border-gray-100 dark:after:border-gray-700': currentStep <= i + 1
+      }"
+    >
+      <div
+        class="flex items-center justify-center w-10 h-10 rounded-full lg:h-12 lg:w-12 shrink-0 transition-all duration-500"
+        [ngClass]="{
+          'bg-blue-100 dark:bg-blue-800 scale-110': currentStep > i,
+          'bg-gray-100 dark:bg-gray-700 scale-100': currentStep <= i
+        }"
+      >
+        <i [class]="step.icon + ' text-blue-600 text-xl lg:text-2xl dark:text-blue-300'"></i>
+      </div>
+    </li>
+  </ol>
+
+  <div class="relative w-full h-96 overflow-hidden">
+    <div
+      *ngFor="let step of steps2; let i = index"
+      class="absolute top-0 left-0 w-full h-full"
+      [class.transition-transform]="!disableTransition"
+      [style.transitionDuration]="disableTransition ? '0ms' : '500ms'"
+      [style.transform]="'translateX(' + (i - (currentStep - 1)) * 100 + '%)'"
+    >
+      <div
+        class="p-4 h-11/12 flex flex-col items-center bg-white shadow-xl md:flex-row md:max-w-x6 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+      >
+        <img
+          class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-2/5 md:rounded-se-sm"
+          [src]="step.img"
+          alt=""
+        />
+        <div class="flex flex-col justify-between p-4 leading-normal">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {{ step.title }}
+          </h5>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400" [innerHTML]="step.text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botones de navegación -->
+  <div class="flex justify-between">
+    <button
+      class="px-6 py-2 text-xl rounded-lg bg-blue-600 hover:bg-blue-700 text-white"
+      (click)="prevStep()"
+      [disabled]="currentStep === 1"
+    >
+      <i class="fa-solid fa-angle-double-left"></i>
+    </button>
+
+    <button
+      *ngIf="currentStep < steps.length"
+      class="px-6 py-2 text-xl rounded-lg bg-blue-600 hover:bg-blue-700 text-white"
+      (click)="nextStep()"
+    >
+      <i class="fa-solid fa-angle-double-right"></i>
+    </button>
+
+    <button
+      *ngIf="currentStep === steps.length"
+      class="px-6 py-2 text-xl rounded-lg bg-blue-600 hover:bg-blue-700 text-white"
+      (click)="reset()"
+    >
+      <i class="fa-solid fa-angle-double-right"></i>
+    </button>
+  </div>
+</div>
+<!--Objetivo de Innovacion-->
+<div
+  class="my-30 h-96 flex flex-col items-center bg-sky-950 md:flex-row md:max-w-x7 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+>
+  <img class="object-cover w-full md:h-96 md:w-lg" src="/assets/img/experiencia.png" alt="" />
+  <div class="relative flex flex-col justify-between p-4 leading-normal">
+    <h5
+      class="pb-3 text-2xl font-bold tracking-tight text-white border-b-2 border-b-amber-400 dark:text-white"
+    >
+      Objetivo de innovación
+    </h5>
+    <p class="pt-3 font-normal text-white dark:text-gray-400">
+      Exponer estrategias aplicables a la producción de frío y calor, con sistemas de CO2,
+      aprovechando al máximo el uso de recursos como el agua, energía eléctrica, gases y
+      combustibles, con un enfoque en el balance de las tres dimensiones del desarrollo sustentable:
+      cuidando la economía del proyecto, con impacto positivo en la sociedad y el medio ambiente,
+      mediante una combinación en el uso de tecnologías con reducción de consumo de agua y
+      recuperación de calor en procesos de la industria que así lo requieran, se puede optimizar el
+      desempeño de prácticamente cualquier aplicación y proceso de la industria, con un enfoque que
+      permite un buen desempeño financiero de las operaciones.
+    </p>
+
+    <div class="absolute left-8 bottom-64">
+      <p class="text-amber-400 text-5xl font-extrabold">&#10094;&#10094;</p>
+    </div>
+    <div class="absolute right-8 top-60">
+      <p class="text-amber-400 text-5xl font-extrabold">&#10095;&#10095;</p>
+    </div>
+  </div>
+</div>
+<!--Nuestro Modelo Base-->
+<div class="w-3/4 mx-auto py-10">
+  <div>
+    <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+      <span class="text-transparent bg-clip-text bg-linear-to-r to-sky-400 from-sky-900"
+        >Nuestro Modelo</span
+      >
+      Base
+    </h1>
+    <p class="mb-10 my-5 text-x1 font-normal text-gray-500 lg:text-md dark:text-gray-400">
+      En FoodTherm Solutions impulsamos la eficiencia energética a través de sistemas de
+      refrigeración con CO₂ capaces de generar frío y calor de manera simultánea. Nuestro compromiso
+      es optimizar el uso de recursos como agua, energía eléctrica, gases y combustibles mediante
+      soluciones tecnológicas sustentables que reducen el impacto ambiental y fortalecen la
+      rentabilidad de las operaciones industriales. Promovemos un equilibrio entre economía, medio
+      ambiente y bienestar social, ofreciendo alternativas que mejoran el desempeño de los procesos
+      productivos y fomentan la transición hacia una industria más limpia y competitiva.
+    </p>
+  </div>
+  <ol class="flex items-center w-full mb-8 sm:mb-10">
+    <li
+      *ngFor="let step of steps3; let i = index"
+      class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-4 after:inline-block transition-all duration-300"
+      [ngClass]="{
+        'text-blue-600 dark:text-blue-500 after:border-blue-100 dark:after:border-blue-800':
+          currentStep2 > i + 1,
+        'after:border-gray-100 dark:after:border-gray-700': currentStep2 <= i + 1
+      }"
+    >
+      <div
+        class="flex items-center justify-center w-10 h-10 rounded-full lg:h-12 lg:w-12 shrink-0 transition-all duration-500"
+        [ngClass]="{
+          'bg-blue-100 dark:bg-blue-800 scale-110': currentStep2 > i,
+          'bg-gray-100 dark:bg-gray-700 scale-100': currentStep2 <= i
+        }"
+      >
+        <i [class]="step.icon + ' text-blue-600 text-xl lg:text-2xl dark:text-blue-300'"></i>
+      </div>
+    </li>
+  </ol>
+
+  <div class="relative w-full h-96 overflow-hidden">
+    <div
+      *ngFor="let step of steps4; let i = index"
+      class="absolute top-0 left-0 w-full h-full"
+      [class.transition-transform]="!disableTransition"
+      [style.transitionDuration]="disableTransition ? '0ms' : '500ms'"
+      [style.transform]="'translateX(' + (i - (currentStep2 - 1)) * 100 + '%)'"
+    >
+      <div
+        class="h-11/12 p-4 flex flex-col items-center bg-white shadow-lg md:flex-row md:max-w-x6 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+      >
+        <div class="w-full">
+          <img
+            class="object-cover w-96 h-64 rounded-lg"
+            [src]="step.img"
+            alt="imagen del servicio"
+          />
+        </div>
+        <div class="flex flex-col justify-between p-4 leading-normal">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {{ step.title }}
+          </h5>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400" [innerHTML]="step.text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botones de navegación -->
+  <div class="flex justify-between">
+    <button
+      class="px-6 py-2 text-xl rounded-lg bg-blue-600 hover:bg-blue-700 text-white"
+      (click)="prevStep2()"
+      [disabled]="currentStep2 === 1"
+    >
+      <i class="fa-solid fa-angle-double-left"></i>
+    </button>
+
+    <button
+      *ngIf="currentStep2 < steps4.length"
+      class="px-6 py-2 text-xl rounded-lg bg-blue-600 hover:bg-blue-700 text-white"
+      (click)="nextStep2()"
+    >
+      <i class="fa-solid fa-angle-double-right"></i>
+    </button>
+
+    <button
+      *ngIf="currentStep2 === steps4.length"
+      class="px-6 py-2 text-xl rounded-lg bg-blue-600 hover:bg-blue-700 text-white"
+      (click)="reset2()"
+    >
+      <i class="fa-solid fa-angle-double-right"></i>
+    </button>
+  </div>
+</div>
+<!--Aplicaciones en la industria-->
+<div class="w-3/4 mx-auto py-10">
+  <div>
+    <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+      <span class="text-transparent bg-clip-text bg-linear-to-r to-sky-400 from-sky-900"
+        >Áreas</span
+      >
+      de la industria.
+    </h1>
+    <p class="mb-10 my-5 text-x1 font-normal text-gray-500 lg:text-md dark:text-gray-400">
+      Nuestros sistemas de refrigeración con recuperación de calor con CO₂ permiten optimizar los
+      procesos térmicos en diversas áreas de la industria, como cervecerías, procesamiento de carne,
+      bebidas y alimentos en general. Al integrar frío y calor en una misma plataforma, nuestras
+      soluciones mejoran la eficiencia energética, reducen costos y apoyan prácticas más
+      sustentables, adaptándose a las necesidades específicas de cada sector productivo.
+    </p>
+  </div>
+  <ol class="flex items-center w-full mb-8 sm:mb-10">
+    <li
+      *ngFor="let step of steps5; let i = index"
+      class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-4 after:inline-block transition-all duration-300"
+      [ngClass]="{
+        'text-blue-600 dark:text-blue-500 after:border-blue-100 dark:after:border-blue-800':
+          currentStep3 > i + 1,
+        'after:border-gray-100 dark:after:border-gray-700': currentStep3 <= i + 1
+      }"
+    >
+      <div
+        class="flex items-center justify-center w-10 h-10 rounded-full lg:h-12 lg:w-12 shrink-0 transition-all duration-500"
+        [ngClass]="{
+          'bg-blue-100 dark:bg-blue-800 scale-110': currentStep3 > i,
+          'bg-gray-100 dark:bg-gray-700 scale-100': currentStep3 <= i
+        }"
+      >
+        <i [class]="step.icon + ' text-blue-600 text-xl lg:text-2xl dark:text-blue-300'"></i>
+      </div>
+    </li>
+  </ol>
+
+  <div class="relative w-full h-96 overflow-hidden">
+    <div
+      *ngFor="let step of steps6; let i = index"
+      class="absolute top-0 left-0 w-full h-full"
+      [class.transition-transform]="!disableTransition"
+      [style.transitionDuration]="disableTransition ? '0ms' : '500ms'"
+      [style.transform]="'translateX(' + (i - (currentStep3 - 1)) * 100 + '%)'"
+    >
+      <div
+        class="h-11/12 p-4 flex flex-col items-center bg-white shadow-lg md:flex-row md:max-w-x6 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+      >
+        <div class="w-full">
+          <img
+            class="object-cover w-96 h-64 rounded-lg"
+            [src]="step.img"
+            alt="imagen del servicio"
+          />
+        </div>
+        <div class="flex flex-col justify-between p-4 leading-normal">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {{ step.title }}
+          </h5>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400" [innerHTML]="step.text"></p>
+          <a
+            href="#"
+            class="w-1/4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Leer más
+            <svg
+              class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botones de navegación -->
+  <div class="flex justify-between">
+    <button
+      class="px-6 py-2 text-xl rounded-lg bg-blue-600 hover:bg-blue-700 text-white"
+      (click)="prevStep3()"
+      [disabled]="currentStep3 === 1"
+    >
+      <i class="fa-solid fa-angle-double-left"></i>
+    </button>
+
+    <button
+      *ngIf="currentStep3 < steps6.length"
+      class="px-6 py-2 text-xl rounded-lg bg-blue-600 hover:bg-blue-700 text-white"
+      (click)="nextStep3()"
+    >
+      <i class="fa-solid fa-angle-double-right"></i>
+    </button>
+
+    <button
+      *ngIf="currentStep3 === steps6.length"
+      class="px-6 py-2 text-xl rounded-lg bg-blue-600 hover:bg-blue-700 text-white"
+      (click)="reset3()"
+    >
+      <i class="fa-solid fa-angle-double-right"></i>
+    </button>
+  </div>
+</div>
+<!--Mapa de Mexico-->
+<div class="w-3/4 mx-auto py-10">
+  <div>
+    <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+      <span class="text-transparent bg-clip-text bg-linear-to-r to-sky-400 from-sky-900"
+        >Nuestros</span
+      >
+      Clientes
+    </h1>
+    <p class="mb-10 my-5 text-x1 font-normal text-gray-500 lg:text-md dark:text-gray-400">
+      El tamaño de nuestros equipos es sobre fabricación. Las dimensiones son determinadas después
+      de una visita técnica en donde se estudia tamaño del espacio, demanda y capacidad productiva
+      de la organización
+    </p>
+    <mapa-mexico></mapa-mexico>
+  </div>
+</div>

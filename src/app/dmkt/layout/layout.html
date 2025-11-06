@@ -1,0 +1,18 @@
+<div class="flex flex-col min-h-screen">
+  <menu
+    class="bg-neutral-600 fixed top-0 left-0 w-full z-50 transform transition-transform duration-1000 rounded-lg"
+    [ngClass]="{
+      'scale-80': scrolled,
+      'scale-100': !scrolled,
+      'opacity-80': scrolled,
+      'rounded-lg': scrolled,
+      'bg-transparent': !scrolled
+    }"
+  ></menu>
+
+  <main class="flex-1 overflow-y-auto h-screen">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footerC></footerC>
+</div>
